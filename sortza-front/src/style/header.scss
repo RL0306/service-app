@@ -1,0 +1,24 @@
+.header {
+    background-color: #001B35;
+    display: flex;
+    align-items: center;
+    margin-inline: auto;
+    justify-content: space-between;
+    color: white;
+    padding: 0.8rem 2rem;
+    .nav {
+        display: flex;
+        gap: 2rem;
+        .nav__link {
+            padding: 0.4rem 0.6rem;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            &:hover {
+                background: #04bd70;
+                border-radius: 25px;
+                color: rgb(117, 184, 206);
+            }
+        }
+    }
+}

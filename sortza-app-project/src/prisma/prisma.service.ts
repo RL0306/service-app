@@ -7,7 +7,7 @@ export class PrismaService extends PrismaClient {
     super({
       datasources: {
         db: {
-          url: "mysql://root:@localhost:3306/service?s"
+          url: "mysql://root:password@localhost:3306/sortza?s"
         }
       }
     })

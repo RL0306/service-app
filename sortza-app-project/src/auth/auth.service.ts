@@ -1,6 +1,6 @@
 import { ForbiddenException, Injectable, NotFoundException } from "@nestjs/common";
 import { PrismaService } from "src/prisma/prisma.service";
-import { ILogin, IRegister } from "./dto/IAuth"
+import { IRegister } from "./dto/authDTO"
 import * as bcrypt from "bcrypt"
 import { Prisma, PrismaClient } from "@prisma/client";
 

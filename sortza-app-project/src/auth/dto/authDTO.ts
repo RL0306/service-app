@@ -14,12 +14,3 @@ export class IRegister {
   password: string
 }
 
-export class ILogin {
-  @IsString()
-  @IsNotEmpty()
-  username: string
-
-  @IsString()
-  @IsNotEmpty()
-  password: string
-}

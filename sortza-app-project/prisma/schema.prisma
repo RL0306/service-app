@@ -26,9 +26,14 @@ model Listing {
   createdAt   DateTime @default(now())
   title       String
   description String
-  address     String
+  street      String
+  city        String
+  state       String
+  country     String
+  doorNumber  Int?
+  postCode    String
   amount      Int
-  time        DateTime
+  end         DateTime
   user        User     @relation(fields: [userId], references: [id])
   userId      Int
 }

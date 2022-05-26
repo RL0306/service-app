@@ -1,7 +1,8 @@
-import { Controller, Injectable, Post, UseGuards } from "@nestjs/common";
+import { Body, Controller, Get, Injectable, Param, Post, UseGuards } from "@nestjs/common";
 import { User } from "@prisma/client";
 import { AuthenticatedGuard } from "src/auth/authenticated.guard";
 import { GetUser } from "src/auth/get-user.decorator";
+import { CreateListingDTO } from "./dto/listingDTO";
 import { ListingService } from "./listing.service";
 
 @Controller("/api/v1/listing")
@@ -10,8 +11,25 @@ import { ListingService } from "./listing.service";
 export class ListingController {
   constructor(private listingService: ListingService) { }
 
-  @Post("/create")
-  create(@GetUser() user: User) {
-    return this.listingService.create(user);
+  @Post()
+  create(@GetUser() user: User, @Body() createListingDTO: CreateListingDTO) {
+    return this.listingService.create(user, createListingDTO);
   }
+
+  @Get("/all")
+  all() {
+    return this.listingService.getAll()
+  }
+
+  @Get(":id")
+  getOne(@Param("id") id: number) {
+    return this.listingService.getOne(id);
+  }
+
+  @Get("/all/current")
+  allForCurrentUser(@GetUser() user: User) {
+    return this.listingService.getAllForCurrentUser(user);
+  }
+
+
 }
