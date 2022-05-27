@@ -31,5 +31,10 @@ export class ListingController {
     return this.listingService.getAllForCurrentUser(user);
   }
 
+  @Post(":id/join")
+  joinListing() {
+    return { status: "join" };
+  }
+
 
 }
