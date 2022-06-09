@@ -45,4 +45,11 @@
         padding: 0.5rem;
         margin-inline: auto;
     }
+
+    .login-form__error{
+        padding-top: 0.5rem;
+        color:red;
+        font-size: 12px;
+        text-align: center;
+    }
 }

@@ -1,0 +1,25 @@
+.table-container{
+    padding-top: 3rem;
+    width: 50%;
+    margin-inline:auto;
+}
+
+
+.table-container__table{
+    border: 3px solid black;
+    border-collapse: collapse;
+    width: 100%;
+
+    th:nth-child(1), th:nth-child(2), th:nth-child(3){
+        width: 27%;
+    }
+
+    th, td {
+        padding: 0.5rem;
+        border: solid 2px black;
+    }
+
+    td{
+        text-align: center;
+    }
+}
