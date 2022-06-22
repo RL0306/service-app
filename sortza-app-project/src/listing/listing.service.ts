@@ -36,13 +36,14 @@ export class ListingService {
   }
 
 
-  async getAll() {
+  async getAll(@GetUser() user: User) {
     /*
       using custom dto object because it's cleaner approach instead of destructing and 
       doing
     */
     try {
       return (await this.prismaService.listing.findMany())
+        .filter(listing => listing.userId !== user.id)
         .map(listing => this.listingDTO.populateListing(listing));
 
     } catch (error) {

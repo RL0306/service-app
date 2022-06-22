@@ -53,12 +53,13 @@ export class CustomListingDTO {
   description: string
   amount: number
   end: Date
+  city: string
 
   populateListing(listing: Listing) {
     const listingDTO = new CustomListingDTO();
     listingDTO.id = listing.id;
     listingDTO.title = listing.title;
-    listingDTO.description = listing.description;
+    listingDTO.city = listing.city;
     listingDTO.amount = listing.amount;
     listingDTO.end = listing.end;
 

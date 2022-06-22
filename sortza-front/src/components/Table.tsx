@@ -1,28 +1,31 @@
 import { ITable } from "../interface/ITable";
 import "../style/table.scss"
-const Table = ({headings} : ITable) => {
-    return(
-    <div className="table-container">
-        <table className="table-container__table">
-            <thead>
-            <tr className="table-container__tr">
-                {headings.map((heading) => 
-                    <th className="table-container__th">{heading}</th>
-                )}
-            </tr>
-            </thead>
+import LinkTo from "./LinkTo";
+const Table = ({ headings, data }: ITable) => {
+    return (
+        <div className="table-container">
+            <table className="table-container__table">
+                <thead>
+                    <tr className="table-container__tr">
+                        {headings.map((heading) =>
+                            <th className="table-container__th">{heading}</th>
+                        )}
+                    </tr>
+                </thead>
 
-            <tbody>
-            <tr>
-                <td>Test</td>
-                <td>Test</td>
-                <td>Test</td>
-                <td>Test</td>
-            </tr>
-            </tbody>
+                <tbody>
+                    {data?.map((listing) =>
+                        <tr>
+                            <td>{listing.title}</td>
+                            <td>{listing.city}</td>
+                            <td>{listing.end.toLocaleString()}</td>
+                            <td><LinkTo className="" to="" text="Click here" /></td>
+                        </tr>
+                    )}
+                </tbody>
 
-        </table>
-    </div>
+            </table>
+        </div>
     )
 }
 

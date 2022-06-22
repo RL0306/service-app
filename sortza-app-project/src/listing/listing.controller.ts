@@ -17,8 +17,8 @@ export class ListingController {
   }
 
   @Get("/all")
-  all() {
-    return this.listingService.getAll()
+  all(@GetUser() user: User) {
+    return this.listingService.getAll(user)
   }
 
   @Get(":id")

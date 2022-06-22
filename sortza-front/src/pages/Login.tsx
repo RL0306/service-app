@@ -6,10 +6,13 @@ import LinkTo from "../components/LinkTo";
 import React, { useState } from "react";
 import { ILogin } from "../interface/IUser";
 import { loginUser } from "../service/UserService";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
 
   const[output, setOutput] = useState<string>("");
+
+  const navigation = useNavigate();
 
   const handleLogin = async (e : React.BaseSyntheticEvent) => {
     e.preventDefault();
@@ -25,7 +28,14 @@ const Login = () => {
     } as ILogin
 
     const response = await loginUser(loginObject);
-    setOutput(response)
+    
+    setOutput(response);
+
+    if(response === "Logging in!"){
+      setTimeout(() => {
+        navigation("/home");
+      }, 3000)
+    }
 
   }
 
